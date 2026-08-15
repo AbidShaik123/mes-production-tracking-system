@@ -36,4 +36,12 @@ public class ProductionOrderController {
     public ProductionOrder completeProduction(@PathVariable Long id) {
         return service.completeProduction(id);
     }
+
+    @PutMapping("/{id}/quantity")
+    public ProductionOrder updateProducedQuantity(
+            @PathVariable Long id,
+            @RequestParam Integer producedQuantity) {
+
+        return service.updateProducedQuantity(id, producedQuantity);
+    }
 }
