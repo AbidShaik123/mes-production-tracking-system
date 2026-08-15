@@ -1,5 +1,6 @@
 package com.mes.productiontracking.controller;
 
+
 import com.mes.productiontracking.entity.ProductionOrder;
 import com.mes.productiontracking.service.ProductionOrderService;
 import org.springframework.web.bind.annotation.*;
@@ -24,5 +25,15 @@ public class ProductionOrderController {
     @GetMapping
     public List<ProductionOrder> getAllOrders() {
         return service.getAllOrders();
+    }
+
+    @PutMapping("/{id}/start")
+    public ProductionOrder startProduction(@PathVariable Long id) {
+        return service.startProduction(id);
+    }
+
+    @PutMapping("/{id}/complete")
+    public ProductionOrder completeProduction(@PathVariable Long id) {
+        return service.completeProduction(id);
     }
 }
